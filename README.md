@@ -38,4 +38,4 @@ By default, request bodies are only accepted if they're JSON *objects*, not arra
 
 ### options.allowArrays = *false*
 
-You can set `allowArrays` to `true` to allow request bodies to be JSON arrays, instead of just objects. This option has no effect when `allowAny` is `true`.
+You can set `allowArrays` to `true` to allow request bodies to be JSON arrays, not just objects. This option has no effect when `allowAny` is `true`.
