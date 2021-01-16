@@ -24,7 +24,7 @@ route.use((req) => {
 });
 ```
 
-If someone sends a `POST`, `PUT`, or `PATCH` request without a Content-Type header of `application/json` they'll receive `415 Unsupported Media Type`. If someone sends invalid JSON, they'll receive a `400` response. If someone sends an Accept header that doesn't allow a response of `application/json`, they'll receive a `406` response. If someone sends a request of any HTTP method other than `POST`, `PUT`, or `PATCH`, they mustn't send a request body or else they'll receive `413 Payload Too Large`.
+If someone sends a `POST`, `PUT`, or `PATCH` request without a Content-Type header of `application/json` they'll receive `415 Unsupported Media Type`. If someone sends invalid JSON, they'll receive a `400` response. If someone sends an Accept header that doesn't allow a response of `application/json`, they'll receive a `406` response. If someone sends a request of any HTTP method other than `POST`, `PUT`, or `PATCH`, they mustn't send a request body or else they'll receive `413 Payload Too Large`. All responses with non-empty bodies will be serialized as JSON and given a Content-Type of `application/json`.
 
 ## Options
 
@@ -34,7 +34,7 @@ By default, response bodies of `null` will not be serialized as JSON, because th
 
 ### options.allowAny = *false*
 
-By default, request bodies must be JSON *objects*, not arrays, strings, numbers, booleans, or null. You can set the `allowAny` option to `true` to allow requests to have any JSON value.
+By default, request bodies are only accepted if they're JSON *objects*, not arrays, strings, numbers, booleans, or null. You can set the `allowAny` option to `true` to allow requests to have any JSON value.
 
 ### options.allowArrays = *false*
 
