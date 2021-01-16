@@ -26,6 +26,8 @@ route.use((req) => {
 
 If someone sends a `POST`, `PUT`, or `PATCH` request without a Content-Type header of `application/json` they'll receive `415 Unsupported Media Type`. If someone sends invalid JSON, they'll receive a `400` response. If someone sends an Accept header that doesn't allow a response of `application/json`, they'll receive a `406` response. If someone sends a request of any HTTP method other than `POST`, `PUT`, or `PATCH`, they mustn't send a request body or else they'll receive `413 Payload Too Large`. All responses with non-empty bodies will be serialized as JSON and given a Content-Type of `application/json`.
 
+Under the hood, this plugin uses [`vapr-input`](https://github.com/JoshuaWise/vapr-input) and [`vapr-output`](https://github.com/JoshuaWise/vapr-output), so you should not use those plugins in combination with this one.
+
 ## Options
 
 ### options.encodeNull = *false*
